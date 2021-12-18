@@ -8,7 +8,9 @@ import {Avatar} from '@material-ui/core'
 const Partners = () => {
   const theme = useTheme()
   return (
-    <Box display="flex" flexDirection={'row'}>
+    <Box display="flex" flexDirection={'row'}
+         bgcolor={'white'}
+    >
       <Box marginTop={2} marginRight={4} width={'20%'} >
         <Typography
           sx={{

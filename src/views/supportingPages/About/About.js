@@ -47,20 +47,23 @@ const About = () => {
 
   return (
     <Box>
-      <HideOnScroll>
+      {/*<HideOnScroll>*/}
           <AppBar
             position={'fixed'}
             sx={{
-              backgroundColor: '#041b37',
-              // backgroundColor: theme.palette.background.paper,
+              backgroundColor: 'rgba(44,203,155,0.77)',
+              height:80
             }}
             elevation={1}
           >
-        <Container bgcolor={'#041b37'} paddingY={{xs: 1 / 2, sm: 1}}>
+        <Container
+          bgcolor={'transparent'}
+          paddingY={{xs: 1 / 2, sm: 1}}
+        >
             <Timer/>
         </Container>
           </AppBar>
-      </HideOnScroll>
+      {/*</HideOnScroll>*/}
       <Container
         // bgcolor={'#f8f9fc'}
         position="relative"
