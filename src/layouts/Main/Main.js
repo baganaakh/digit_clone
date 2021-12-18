@@ -27,14 +27,13 @@ const Main = ({
               }) => {
   return (
     <div
-      style={{backgroundColor:'#3131B1FF'}}
+      // style={{backgroundColor:'#3131B1FF'}}
     >
       <Container
         padding={0}
         // bgcolor={'#3131B1FF'}
       >
         <main>
-          <Box height={{xs: 56, sm: 64}}/>
           {children}
         </main>
       </Container>
