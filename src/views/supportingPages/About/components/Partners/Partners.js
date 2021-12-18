@@ -1,51 +1,41 @@
-import React from 'react';
-import { useTheme } from '@material-ui/core/styles';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import React from 'react'
+import {useTheme} from '@material-ui/core/styles'
+import Box from '@material-ui/core/Box'
+import Typography from '@material-ui/core/Typography'
+import trustedCompany from './trustedCompany.jpg'
+import {Avatar} from '@material-ui/core'
 
 const Partners = () => {
-  const theme = useTheme();
+  const theme = useTheme()
   return (
-      <Box display="flex" flexWrap="wrap" justifyContent={'space-evenly'}>
-        <Box marginTop={2} marginRight={4}>
-          <Typography
-            sx={{
-              textTransform: 'uppercase',
-              fontWeight: 'medium',
-            }}
-            gutterBottom
-            color={'black'}
-            align={'center'}
-          >
-            Бидэнд итгэсэн:
-          </Typography>
-        </Box>
-        {[
-          'https://assets.maccarianagency.com/svg/logos/airbnb-original.svg',
-          'https://assets.maccarianagency.com/svg/logos/amazon-original.svg',
-          'https://assets.maccarianagency.com/svg/logos/fitbit-original.svg',
-          'https://assets.maccarianagency.com/svg/logos/netflix-original.svg',
-          'https://assets.maccarianagency.com/svg/logos/google-original.svg',
-          'https://assets.maccarianagency.com/svg/logos/paypal-original.svg',
-        ].map((item, i) => (
-          <Box maxWidth={90} marginTop={2} marginRight={4} key={i}>            
-            <Box
-              component="img"
-              height={'100%'}
-              width={'100%'}
-              src={item}
-              alt="..."
-              sx={{
-                filter:
-                  theme.palette.mode === 'dark'
-                    ? 'brightness(0) invert(0.7)'
-                    : 'none',
-              }}
-            />
-          </Box>
-        ))}
-      </Box>    
-  );
-};
+    <Box display="flex" flexDirection={'row'}>
+      <Box marginTop={2} marginRight={4} width={'20%'} >
+        <Typography
+          sx={{
+            textTransform: 'uppercase',
+            fontWeight: 'medium',
+          }}
+          gutterBottom
+          color={'black'}
+          align={'center'}
+        >
+          Бидэнд итгэсэн:
+        </Typography>
+      </Box>
+      <Box
+        component="img"
+        width={'70%'}
+        src={trustedCompany}
+        alt="..."
+        // sx={{
+        //   filter:
+        //     theme.palette.mode === 'dark'
+        //       ? 'brightness(0) invert(0.7)'
+        //       : 'none',
+        // }}
+      />
+    </Box>
+  )
+}
 
-export default Partners;
+export default Partners
