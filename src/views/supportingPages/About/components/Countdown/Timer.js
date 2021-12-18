@@ -47,13 +47,10 @@ class CountDown extends Component {
 
   componentDidMount() {
     this.deadline = new Date('Jan 20, 2022 09:00:00').getTime()
-//2022.01.20 9.00
     this.x = setInterval(this.count, 1000)
   }
 
   render() {
-    console.log("-> this.deadline", this.deadline);
-    console.log("-> this.now", Date.now());
     const {days, seconds, hours, minutes} = this.state
     return (
       <Grid

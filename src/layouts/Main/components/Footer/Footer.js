@@ -22,7 +22,6 @@ async function getContentInternal(url) {
       buildUrl(url)
     )
     if (response) {
-      console.log('-> response', response)
     }
     return await response.data
   } catch (error) {

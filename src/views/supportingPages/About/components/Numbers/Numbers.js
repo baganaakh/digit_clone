@@ -34,7 +34,6 @@ const Numbers = () => {
 
 const getData = async () => {
   try {
-      let tmpImage = []
       let res = null;
 
       res = await apiService.find('num-products');
@@ -49,9 +48,6 @@ const getData = async () => {
       setLoading(false)
   }
 }
-const statData=[
-  {"id":1,"name":"Company","descr":"508","title":"Дижитал бизнесүүд","published_at":"2021-10-16T08:42:56.000Z","created_at":"2021-10-16T00:42:56.000Z","updated_at":"2021-12-16T04:18:17.000Z"},{"id":2,"name":"System","descr":"232","title":"Систем","published_at":"2021-10-16T08:42:56.000Z","created_at":"2021-10-16T00:42:56.000Z","updated_at":"2021-12-16T04:18:33.000Z"},{"id":3,"name":"Application","descr":"198","title":"Аппликейшн","published_at":"2021-10-16T08:42:56.000Z","created_at":"2021-10-16T00:42:56.000Z","updated_at":"2021-12-16T04:18:25.000Z"},{"id":4,"name":"Платформ","descr":"191","title":"Платформ","published_at":"2021-10-16T08:42:56.000Z","created_at":"2021-10-16T00:42:56.000Z","updated_at":"2021-12-16T04:18:43.000Z"}]
-console.log("-> numProducts", numProducts);
   return (
     <Box paddingX={2}>
       <Box

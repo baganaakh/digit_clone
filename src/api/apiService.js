@@ -1,5 +1,5 @@
 //import backendStore from './backendStore'
-import Cookies from 'utils/Cookies'
+
 import axios from 'axios';
 
 const CONFIG = {
@@ -10,17 +10,6 @@ const CONFIG = {
     token: process.env.REACT_APP_CLIENT_TOKEN || ''
 };
 
-function getBearerToken() {
-    // return localStorage.getItem('token');
-    if (CONFIG.token !== '')
-        return CONFIG.token
-    else
-        return Cookies.getCookie('token');
-}
-
-function setBearerToken(token) {
-    localStorage.setItem('token', token);
-}
 
 
 export default class apiService {
@@ -74,31 +63,13 @@ export function getContent(url) {
     return getContentInternal(url, true);
 }
 
-async function getContentInternal(url, retry) {
-    // Fetch the bearer token.
-    //const token = await fetchBearerToken();
-
+async function getContentInternal(url) {
     try {
         const response = await axios.get(
             buildUrl(url)
-            // headers: {
-            //     'Accept': 'application/json',
-            //     'Authorization': `Bearer ${token}`
-            // }
         );
 
         if (response) {
-        console.log("-> response", response);
-            // if (response.status === 403 || response.status === 401) {
-            //     // If we get an error we clear the bearer token and retry the request.
-            //     clearBearerToken();
-
-            //     if (retry) {
-            //         return getContentInternal(url);
-            //     }
-            // }
-
-            // throw new Error(`Failed to retrieve content, got ${response.statusText}`);
         }
 
         return await response.data;
@@ -112,8 +83,6 @@ function buildUrl(url) {
     if (url.length > 0 && url.startsWith('/')) {
         url = url.substr(1);
     }
-
     const result = `${CONFIG.url}/${url}`;
-
     return result;
 }
