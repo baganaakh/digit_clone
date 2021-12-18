@@ -5,6 +5,7 @@ import Divider from '@material-ui/core/Divider';
 import Container from 'common/Container';
 import { Work, Headline, Numbers, Story, Partners, Team, Features } from './components';
 import apiService from 'api/apiService'
+import Timer from './components/Countdown/Timer'
 
 const About = () => {
   const theme = useTheme();
@@ -37,6 +38,7 @@ const About = () => {
   
   return (
     <Box>
+      <Timer/>
       <Container bgcolor={'#fff'} position='relative'>
         <Headline items={about} />
         <Numbers />

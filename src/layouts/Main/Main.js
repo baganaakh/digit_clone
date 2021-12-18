@@ -10,7 +10,6 @@ import Container from 'common/Container'
 
 const HideOnScroll = ({children}) => {
   const trigger = useScrollTrigger()
-
   return (
     <Slide appear={false} direction="down" in={!trigger}>
       {children}
@@ -27,8 +26,13 @@ const Main = ({
                 setThemePalette,
               }) => {
   return (
-    <div>
-      <Container padding={0} bgcolor={'#fff'}>
+    <div
+      style={{backgroundColor:'#3131B1FF'}}
+    >
+      <Container
+        padding={0}
+        // bgcolor={'#3131B1FF'}
+      >
         <main>
           <Box height={{xs: 56, sm: 64}}/>
           {children}
@@ -37,9 +41,6 @@ const Main = ({
       <Container padding={0}>
         <Footer setThemePalette={setThemePalette}/>
       </Container>
-      {/* <Container paddingY={4}>
-        <Footer />
-      </Container> */}
     </div>
   )
 }

@@ -19,24 +19,16 @@ import {Alert, Collapse} from '@mui/material'
 
 const Headline = ({items}) => {
   const theme = useTheme()
-  const [current, setCurrent] = useState(0)
   const [mail, setMail] = useState('')
   const [error, setError] = useState(false)
   const [open, setOpen] = useState(false)
-  const length = items && items[0] && items[0].cover ? items[0].cover.length : 0
 
   const assetAPIURL = 'https://api.digit.mn'
 
   const isXs = useMediaQuery(theme.breakpoints.up('xs'), {
     defaultMatches: true,
   })
-  const isSm = useMediaQuery(theme.breakpoints.up('sm'), {
-    defaultMatches: true,
-  })
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
-    defaultMatches: true,
-  })
-  const isLg = useMediaQuery(theme.breakpoints.up('lg'), {
     defaultMatches: true,
   })
 
@@ -55,13 +47,7 @@ const Headline = ({items}) => {
     autoplay: true,
   }
 
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1)
-  }
 
-  const prevSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current - 1)
-  }
 
   if (!Array.isArray(items && items[0] && items[0].cover) || items && items[0] && items[0].cover.length <= 0) {
     return null
@@ -81,29 +67,10 @@ const Headline = ({items}) => {
   }
   return (
     <Box style={{position: 'relative', justifyContent: 'center', alignItems: 'center'}}>
-      <FaArrowAltCircleLeft style={{
-        position: 'absolute',
-        top: '50%',
-        left: '32px',
-        fontSize: '3rem',
-        color: '#000',
-        zIndex: '10',
-        cursor: 'pointer',
-        userSelect: 'none'
-      }} onClick={prevSlide}/>
-      <FaArrowAltCircleRight style={{
-        position: 'absolute',
-        top: '50%',
-        right: '32px',
-        fontSize: '3rem',
-        color: '#000',
-        zIndex: '10',
-        cursor: 'pointer',
-        userSelect: 'none'
-      }} onClick={nextSlide}/>
       <Slider {...sliderOpts}>
         {
-          items[0] && items[0].cover ? items[0].cover.map(
+          items[0] && items[0].cover ?
+            items[0].cover.map(
               (item, i) => (
                 <Box key={i} paddingX={2}>
                   <Box
@@ -191,7 +158,7 @@ const Headline = ({items}) => {
                               name="mail"
                               fullWidth
                               onChange={(e) => setMail(e.target.value)}
-                              sx={{ input: { color: 'white' } }}
+                              sx={{input: {color: 'white'}}}
                             />
                             <Button
                               variant="contained"
